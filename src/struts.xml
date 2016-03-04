@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+        <constant name="conststruts.devMode" value="true"/>
+        <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+        <constant name="struts.i18n.encoding" value="UTF-8" />
+        <constant name="struts.custom.i18n.resources" value="strings" />
+
+        <package name="default" namespace="/" extends="struts-default">
+          <action name="login" class="com.drugsystem.action.LoginAction">
+              <result type="redirect" name="drugAdministrator">/DrugAdministrator/index.jsp</result>
+              <result type="redirect" name="libaray">/Libaray/index.jsp</result>
+              <result type="redirect" name="systemAdministrator">/SystemAdministrator/index.jsp</result>
+              <result type="redirect" name="wareHouse">/WareHouse/index.jsp</result>
+          </action>
+
+            <action name="addGoods" class="com.drugsystem.action.AddGoodsAction">
+                <result type="redirect" name="success">/DrugAdministrator/addGoods.jsp</result>
+            </action>
+            
+            <action name="getGoodsInfo" class="com.drugsystem.action.GetGoodsInfoAction">
+                <result type="redirect" name="success">/DrugAdministrator/getGoodsInfo.jsp</result>
+            </action>
+
+            <action name="putStorage" class="com.drugsystem.action.PutStorageAction">
+                <result type="redirect" name="success">/Libaray/adminRuku.jsp</result>
+            </action>
+            
+            <action name="outStorage" class="com.drugsystem.action.OutStorageAction">
+                <result type="redirect" name="success">/Libaray/adminChuku.jsp</result>
+            </action>
+            
+            <action name="checkStorage" class="com.drugsystem.action.CheckStorageAction">
+                <result type="redirect" name="success">/Libaray/checkStorage.jsp</result>
+            </action>
+
+            <action name="add" class="com.drugsystem.action.AddAdministrator">
+                <result type="redirect" name="success">/SystemAdministrator/addAdministrator.jsp</result>
+            </action>
+
+            <action name="getLibaray" class="com.drugsystem.action.getLibarayAction">
+                <result type="redirect" name="success">/SystemAdministrator/LibarayList.jsp</result>
+            </action>
+
+            <action name="getDrugAdministrator" class="com.drugsystem.action.getDrugAdministratorAction">
+                <result type="redirect" name="success">/SystemAdministrator/DrugAdministratorList.jsp</result>
+            </action>
+        </package>
+   <!--
+        <package name="default" namespace="/" extends="struts-default">
+
+                <action name="login" class="com.drugsystem.action.LoginAction">
+                        <result name="success">/main.jsp</result>
+                        <result name="input">/login.jsp</result>
+                        <result name="error">/login.jsp</result>
+                </action>
+         -->
+                <!-- Random验证码 -->
+        <!--
+          <action name="rand" class="com.drugsystem.action.RandomAction">
+                  <result type="stream" name="success">
+                          <param name="contentType">image/jpeg</param>
+                          <param name="inputName">inputStream</param>
+                  </result>
+          </action>
+
+                </package>
+
+        <include file="login.xml"/>
+        <include file="addGoods.xml"/>
+        <include file="checkStorage.xml"/>
+        <include file="getGoodsInfo.xml"/>
+        <include file="getUserList.xml"/>    
+        <include file="logout.xml"/>
+        <include file="outStorage.xml"/>
+        <include file="putStorage.xml"/>
+    -->
+</struts>
